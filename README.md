@@ -1,7 +1,6 @@
-# SQL projekt (ČR: mzdy a ceny potravin)
+# SQL Projekt
 
 **Autor:** Tomáš Havelec  
-**Databáze:** PostgreSQL
 
 ## Cíl
 Vytvořit dvě výsledné tabulky:
