@@ -2,9 +2,6 @@
 -- Autor: Tomáš Havelec
 -- ==============================================
 
-DROP TABLE IF EXISTS t_tomas_havelec_project_sql_primary_final;
-DROP TABLE IF EXISTS t_tomas_havelec_project_sql_secondary_final;
-
 -- 1) Primární tabulka – ČR (mzdy + ceny potravin)
 CREATE TABLE t_tomas_havelec_project_sql_primary_final AS
 WITH mzdy AS (
