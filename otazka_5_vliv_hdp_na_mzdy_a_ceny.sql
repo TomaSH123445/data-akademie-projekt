@@ -1,4 +1,4 @@
--- 5️⃣ Má výška HDP vliv na změny ve mzdách a cenách potravin?
+-- Má výška HDP vliv na změny ve mzdách a cenách potravin?
 WITH rust_mezd AS (
     SELECT 
         rok,
