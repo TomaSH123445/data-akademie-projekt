@@ -12,7 +12,7 @@ Vytvořit dvě výsledné tabulky:
 - `czechia_price`, `czechia_price_category`
 - `economies`, `countries`
 
-## Postup (shrnutí)
+## Postup
 - Primární tabulka: roční průměrná mzda (value_type_code=5958, unit_code=200), roční průměry cen (mléko, chléb, průměr všech potravin), výpočet kupní síly (litry/kg za mzdu), ponechány jen roky s dostupnými cenami mléka i chleba.
 - Sekundární tabulka: roční průměrné ceny po kategoriích, meziroční růst (%), připojené makroindikátory a YoY HDP.
 
