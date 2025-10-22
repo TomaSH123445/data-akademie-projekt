@@ -1,5 +1,4 @@
 -- ==============================================
--- Vytvoření výsledných tabulek projektu (PostgreSQL)
 -- Autor: Tomáš Havelec
 -- ==============================================
 
