@@ -1,4 +1,4 @@
-# Průvodní listina – SQL projekt (ČR: mzdy a ceny potravin)
+# SQL projekt (ČR: mzdy a ceny potravin)
 
 **Autor:** Tomáš Havelec  
 **Databáze:** PostgreSQL
