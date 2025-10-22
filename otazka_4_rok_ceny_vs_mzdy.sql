@@ -1,4 +1,4 @@
--- 4️⃣ Existuje rok, ve kterém byl růst cen potravin výrazně vyšší než růst mezd (více než o 10 %)?
+-- Existuje rok, ve kterém byl růst cen potravin výrazně vyšší než růst mezd (více než o 10 %)?
 WITH rust AS (
     SELECT 
         rok,
