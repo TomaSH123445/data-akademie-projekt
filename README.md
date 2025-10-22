@@ -31,7 +31,7 @@ Spusťte `kontroly_dat.sql`. Získáte:
 - TOP 5 kategorií s nejnižším průměrným YoY růstem.
 
 ## Jak spustit
-1. `vytvor_vysledne_tabulky.sql`
+1. `vysledne_tabulky.sql`
 2. `kontroly_dat.sql`
 3. volitelně dotazy `otazka_*.sql` pro výzkumné otázky.
 
