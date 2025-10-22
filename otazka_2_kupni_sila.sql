@@ -1,4 +1,4 @@
--- 2️⃣ Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední rok?
+-- Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední rok?
 SELECT 
     rok,
     ROUND(litru_mlika, 1) AS litru_mlika_za_mzdu,
