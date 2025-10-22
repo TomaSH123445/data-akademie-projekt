@@ -1,4 +1,4 @@
--- 1️⃣ Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?
+-- Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?
 SELECT 
     rok,
     ROUND(prumerna_mzda, 2) AS prumerna_mzda,
