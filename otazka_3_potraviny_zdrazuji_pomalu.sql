@@ -1,4 +1,4 @@
--- 3️⃣ Která kategorie potravin zdražuje nejpomaleji (nejnižší meziroční nárůst)?
+-- Která kategorie potravin zdražuje nejpomaleji (nejnižší meziroční nárůst)?
 SELECT 
     kategorie,
     ROUND(AVG(rust_procenta), 2) AS prumerny_rocni_rust_procent
