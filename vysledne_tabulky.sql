@@ -103,6 +103,6 @@ SELECT
   e.rust_hdp_procenta
 FROM rust r
 LEFT JOIN ekonomika e 
-  ON e.rok = r.rok AND (e.stat ILIKE 'Czech%' OR e.stat ILIKE 'Česko%')
+  ON e.rok = r.rok AND e.stat = 'Czech Republic'
 WHERE r.cena_minuly_rok IS NOT NULL
 ORDER BY r.kategorie, r.rok;
