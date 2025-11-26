@@ -2,7 +2,7 @@
 -- Autor: Tomáš Havelec
 -- ==============================================
 
--- 1) Primární tabulka – ČR (mzdy + ceny potravin)
+-- 1) Primární tabulka
 CREATE TABLE t_tomas_havelec_project_sql_primary_final AS
 WITH mzdy AS (
   SELECT payroll_year AS rok, AVG(value::numeric) AS prumerna_mzda
@@ -50,7 +50,7 @@ WHERE ml.cena_mlika IS NOT NULL
   AND ch.cena_chleba IS NOT NULL
 ORDER BY m.rok;
 
--- 2) Sekundární tabulka – kategorie potravin + makro
+-- 2) Sekundární tabulka
 CREATE TABLE t_tomas_havelec_project_sql_secondary_final AS
 WITH rocni_ceny AS (
   SELECT 
