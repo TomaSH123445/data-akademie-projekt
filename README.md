@@ -35,4 +35,12 @@ Spusťte `kontroly_dat.sql`. Získáte:
 2. `kontroly_dat.sql`
 3. volitelně dotazy `otazka_*.sql` pro výzkumné otázky.
 
+## Odpovědi na otázky
+1. Otázka : -- Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají? Klesají v roce 2013
+2. Otázka :-- Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední rok? 2006_l - 1432.1 2006_kg -1282.4 2018_l - 1639.2	2018_kg - 1340.2
+3. Otázka : -- Která kategorie potravin zdražuje nejpomaleji (nejnižší meziroční nárůst)?  Cukr krystalový -1.92
+4. Otázka : -- Existuje rok, ve kterém byl růst cen potravin výrazně vyšší než růst mezd (více než o 10 %)? max -9.97 2008
+5. Otázka : -- Má výška HDP vliv na změny ve mzdách a cenách potravin?  ANO 
+
+
 
