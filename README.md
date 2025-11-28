@@ -23,17 +23,9 @@ Vytvořit dvě výsledné tabulky:
 ### Sekundární
 `stat`, `rok`, `kod_kategorie`, `kategorie`, `prumerna_cena`, `cena_minuly_rok`, `rust_procenta`, `hdp`, `gini`, `populace`, `rust_hdp_procenta`
 
-## Kontroly kvality a chybějící hodnoty
-Spusťte `kontroly_dat.sql`. Získáte:
-- rozsah let a počty řádků,
-- počty `NULL` po sloupcích,
-- roky s chybějícím mlékem/chlebem,
-- TOP 5 kategorií s nejnižším průměrným YoY růstem.
-
 ## Jak spustit
 1. `vysledne_tabulky.sql`
-2. `kontroly_dat.sql`
-3. volitelně dotazy `otazka_*.sql` pro výzkumné otázky.
+2. volitelně dotazy `otazka_*.sql` pro výzkumné otázky.
 
 ## Odpovědi na otázky
 1. Otázka : -- Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají? Klesají v roce 2013
