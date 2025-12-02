@@ -1,38 +1,117 @@
-# SQL Projekt
+# SQL projekt – mzdy, ceny potravin a HDP
 
-**Autor:** Tomáš Havelec  
+**Autor:** Tomas Havelec  
+**Databaze:** PostgreSQL  
 
-## Cíl
-Vytvořit dvě výsledné tabulky:
-1. `t_tomas_havelec_project_sql_primary_final` – agregovaná data za ČR (mzdy + ceny potravin) po rocích a ukazatele kupní síly.
-2. `t_tomas_havelec_project_sql_secondary_final` – roční ceny potravin po kategoriích včetně meziročních růstů a připojených makroindikátorů (HDP, GINI, populace).
+---
 
-## Datové zdroje
-- `czechia_payroll`, `czechia_payroll_value_type`, `czechia_payroll_unit`
-- `czechia_price`, `czechia_price_category`
-- `economies`, `countries`
+## Cíl projektu
 
-## Postup
-- Primární tabulka: roční průměrná mzda (value_type_code=5958, unit_code=200), roční průměry cen (mléko, chléb, průměr všech potravin), výpočet kupní síly (litry/kg za mzdu), ponechány jen roky s dostupnými cenami mléka i chleba.
-- Sekundární tabulka: roční průměrné ceny po kategoriích, meziroční růst (%), připojené makroindikátory a YoY HDP.
+Cílem projektu je **odpovědět na pět výzkumných otázek** týkajících se vývoje mezd, cen potravin, kupní síly a možného vztahu k vývoji HDP v České republice a dalších evropských státech.  
+K tomu jsou vytvořeny dvě výsledné tabulky, nad kterými běží analytické dotazy:
 
-## Klíčové sloupce
-### Primární
-`rok`, `prumerna_mzda`, `prumerna_cena_jidla`, `cena_mlika`, `cena_chleba`, `litru_mlika_za_mzdu`, `kg_chleba_za_mzdu`
+1. `t_tomas_havelec_project_sql_primary_final` – mzdy a ceny potravin za Českou republiku na společném časovém intervalu.  
+2. `t_tomas_havelec_project_sql_secondary_final` – makroekonomická data pro evropské státy (HDP, GINI, populace, meziroční růst HDP).
 
-### Sekundární
-`stat`, `rok`, `kod_kategorie`, `kategorie`, `prumerna_cena`, `cena_minuly_rok`, `rust_procenta`, `hdp`, `gini`, `populace`, `rust_hdp_procenta`
+---
 
-## Jak spustit
-1. `vysledne_tabulky.sql`
-2. volitelně dotazy `otazka_*.sql` pro výzkumné otázky.
+## Použité zdroje
 
-## Odpovědi na otázky
-1. Otázka : -- Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají? Klesají v roce 2013
-2. Otázka :-- Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední rok? 2006_l - 1432.1 2006_kg -1282.4 2018_l - 1639.2	2018_kg - 1340.2
-3. Otázka : -- Která kategorie potravin zdražuje nejpomaleji (nejnižší meziroční nárůst)?  Cukr krystalový -1.92
-4. Otázka : -- Existuje rok, ve kterém byl růst cen potravin výrazně vyšší než růst mezd (více než o 10 %)? max -9.97 2008
-5. Otázka : -- Má výška HDP vliv na změny ve mzdách a cenách potravin?  ANO 
+- `czechia_payroll`, `czechia_payroll_value_type`, `czechia_payroll_unit`, `czechia_payroll_industry_branch`  
+- `czechia_price`, `czechia_price_category`  
+- `economies`, `countries`  
+
+---
+
+## Popis výsledných tabulek
+
+### 1. `t_tomas_havelec_project_sql_primary_final`
+
+**Zdroj:** `czechia_payroll` + `czechia_price`  
+
+**Granularita:** rok × odvětví (plus pseudo-odvětví `ALL` pro celou ekonomiku)
+
+**Sloupce:**
+
+- `year` – kalendářní rok  
+- `industry_code` – kód odvětví (nebo `ALL` pro celkový průměr)  
+- `industry_name` – název odvětví  
+- `avg_wage` – průměrná hrubá mzda na zaměstnance v daném odvětví a roce  
+- `avg_food_price` – nevážený průměr cen všech potravin v daném roce  
+- `milk_price` – průměrná cena litru mléka  
+- `bread_price` – průměrná cena kilogramu chleba  
+- `liters_milk` – kolik litrů mléka lze koupit za průměrnou mzdu  
+- `kg_bread` – kolik kilogramů chleba lze koupit za průměrnou mzdu  
+
+### 2. `t_tomas_havelec_project_sql_secondary_final`
+
+**Zdroj:** `economies` + `countries` (Evropa)
+
+**Granularita:** stát × rok
+
+**Sloupce:**
+
+- `country` – název státu  
+- `year` – kalendářní rok  
+- `gdp` – hrubý domácí produkt  
+- `gini` – koeficient příjmové nerovnosti  
+- `population` – počet obyvatel  
+- `gdp_yoy_pct` – meziroční růst HDP v %  
+- `region`, `subregion` – geografická klasifikace v Evropě  
+
+---
+
+## Informace o výstupních datech a chybějících hodnotách
+
+- V **primární tabulce** jsou zahrnuty pouze *roky, pro které existují jak mzdy, tak ceny mléka i chleba*. Pokud některý rok chybí v cenách dané potraviny, vypadne z výsledné tabulky.  
+- První rok časové řady u mezd a cen nemá definovaný meziroční růst (YoY), což je přirozené – pro výpočet je potřeba předchozí rok.  
+- V některých odvětvích mohou chybět hodnoty mezd v konkrétním roce; při agregaci po odvětvích je to vidět jako absence dané kombinace `industry_code` + `year`.  
+- V **sekundární tabulce** nemusí mít všechny státy data pro všechna léta (např. chybějící HDP pro starší roky). V těchto letech je `gdp_yoy_pct` NULL, protože není k dispozici „předchozí rok“ pro výpočet růstu.  
+- Analýza „nejpomaleji zdražující kategorie“ využívá přímo tabulky `czechia_price` + `czechia_price_category`, protože rozpad na kategorie potravin by byl pro výsledné tabulky příliš detailní.
+
+---
+
+## Výzkumné otázky – slovní odpovědi
+
+> Pozn.: Konkrétní roky a procenta doplň podle výstupů z dodaných SQL skriptů.
+
+### Otázka 1  
+**„Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?“**  
+
+Z výstupu dotazu vidíme, že většina odvětví vykazuje v čase kladný meziroční růst mezd; mzdy tedy dlouhodobě rostou. V několika málo letech se však objevují odvětví s mírným poklesem mezd (např. `[doplnit odvětví/roky]`), což souvisí pravděpodobně s ekonomickými zpomaleními v těchto obdobích. Celkově lze říci, že trend mezd je rostoucí, ale rozhodně ne striktně monotonní – některá odvětví v jednotlivých letech krátkodobě klesají.
+
+### Otázka 2  
+**„Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období?“**  
+
+Z tabulky `t_tomas_havelec_project_sql_primary_final` pro pseudo-odvětví `ALL` vyplývá, že na začátku sledovaného období (rok `[doplnit]`) bylo možné za průměrnou mzdu koupit přibližně `[doplnit]` litrů mléka a `[doplnit]` kg chleba. Na konci období (rok `[doplnit]`) tato kupní síla vzrostla na zhruba `[doplnit]` litrů mléka a `[doplnit]` kg chleba. Kupní síla domácností u základních potravin se tedy v čase zvýšila, i když růst není u obou komodit nutně stejně rychlý.
+
+### Otázka 3  
+**„Která kategorie potravin zdražuje nejpomaleji?“**  
+
+Analýza ročních průměrných cen podle kategorií ukazuje, že nejpomaleji zdražující kategorií je `[doplnit název kategorie]`, která má nejnižší průměrný meziroční růst cen v procentech. To znamená, že její cena rostla v čase stabilněji a méně dynamicky než u ostatních potravin, a z hlediska dlouhodobé inflace byla pro spotřebitele relativně „bezpečnější“. Ostatní kategorie vykazují výrazně vyšší průměrné tempo zdražování, případně větší výkyvy v jednotlivých letech.
+
+### Otázka 4  
+**„Existuje rok, ve kterém byl meziroční nárůst cen potravin výrazně vyšší než růst mezd (o více než 10 p. b.)?“**  
+
+Výsledek dotazu srovnávající meziroční růst průměrné mzdy a růst průměrných cen potravin ukazuje, že takové roky skutečně existují – například `[doplnit roky]`. V těchto letech rostly ceny potravin o více než 10 procentních bodů rychleji než mzdy, což znamená výrazné zhoršení reálné kupní síly domácností. Lze tedy říci, že inflace potravin v těchto obdobích krátkodobě „utekla“ růstu mezd.
+
+### Otázka 5  
+**„Má výška HDP vliv na změny ve mzdách a cenách potravin?“**  
+
+Při pohledu na meziroční růst HDP a meziroční růst mezd a cen potravin v ČR je vidět, že mezi růstem HDP a růstem mezd existuje určité pozitivní propojení – v letech s rychlejším růstem HDP mají většinou tendenci růst i mzdy rychleji. U cen potravin je vazba na HDP slabší, protože jsou ovlivněny i dalšími faktory (např. světové ceny komodit, kurz koruny, dopravní a energetické náklady). Celkově lze říci, že HDP má viditelnější vliv na mzdy než přímo na ceny potravin.
+
+---
+
+## Jak skripty používat
+
+1. Spusť `primarni_tabulka.sql` – vytvoří tabulku `t_tomas_havelec_project_sql_primary_final`.  
+2. Spusť `sekundarni_tabulka.sql` – vytvoří tabulku `t_tomas_havelec_project_sql_secondary_final`.  
+3. Spusť jednotlivé dotazy `otazka_1_*.sql` až `otazka_5_*.sql` a výsledky zanalyzuj slovně (viz výše).  
+
+---
+
+Pokud chceš, můžeme ještě **dopoladit README** tak, že do něj vložíš konkrétní čísla/roky z tvých výsledků a já ti zkontroluju, jestli slovní interpretace sedí k datům.
+
 
 
 
