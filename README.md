@@ -3,8 +3,6 @@
 **Autor:** Tomas Havelec  
 **Databaze:** PostgreSQL  
 
----
-
 ## Cíl projektu
 
 Cílem projektu je **odpovědět na pět výzkumných otázek** týkajících se vývoje mezd, cen potravin, kupní síly a možného vztahu k vývoji HDP v České republice a dalších evropských státech.  
@@ -13,15 +11,12 @@ K tomu jsou vytvořeny dvě výsledné tabulky, nad kterými běží analytické
 1. `t_tomas_havelec_project_sql_primary_final` – mzdy a ceny potravin za Českou republiku na společném časovém intervalu.  
 2. `t_tomas_havelec_project_sql_secondary_final` – makroekonomická data pro evropské státy (HDP, GINI, populace, meziroční růst HDP).
 
----
-
 ## Použité zdroje
 
 - `czechia_payroll`, `czechia_payroll_value_type`, `czechia_payroll_unit`, `czechia_payroll_industry_branch`  
 - `czechia_price`, `czechia_price_category`  
 - `economies`, `countries`  
 
----
 
 ## Popis výsledných tabulek
 
@@ -100,7 +95,6 @@ Výsledek dotazu srovnávající meziroční růst průměrné mzdy a růst prů
 
 Při pohledu na meziroční růst HDP a meziroční růst mezd a cen potravin v ČR je vidět, že mezi růstem HDP a růstem mezd existuje určité pozitivní propojení – v letech s rychlejším růstem HDP mají většinou tendenci růst i mzdy rychleji. U cen potravin je vazba na HDP slabší, protože jsou ovlivněny i dalšími faktory (např. světové ceny komodit, kurz koruny, dopravní a energetické náklady). Celkově lze říci, že HDP má viditelnější vliv na mzdy než přímo na ceny potravin.
 
----
 
 ## Jak skripty používat
 
@@ -108,7 +102,6 @@ Při pohledu na meziroční růst HDP a meziroční růst mezd a cen potravin v 
 2. Spusť `sekundarni_tabulka.sql` – vytvoří tabulku `t_tomas_havelec_project_sql_secondary_final`.  
 3. Spusť jednotlivé dotazy `otazka_1_*.sql` až `otazka_5_*.sql` a výsledky zanalyzuj slovně (viz výše).  
 
----
 
 Pokud chceš, můžeme ještě **dopoladit README** tak, že do něj vložíš konkrétní čísla/roky z tvých výsledků a já ti zkontroluju, jestli slovní interpretace sedí k datům.
 
