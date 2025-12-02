@@ -12,7 +12,6 @@ K tomu jsou vytvořeny dvě výsledné tabulky, nad kterými běží analytické
 2. `t_tomas_havelec_project_sql_secondary_final` – makroekonomická data pro evropské státy (HDP, GINI, populace, meziroční růst HDP).
 
 ## Použité zdroje
-
 - `czechia_payroll`, `czechia_payroll_value_type`, `czechia_payroll_unit`, `czechia_payroll_industry_branch`  
 - `czechia_price`, `czechia_price_category`  
 - `economies`, `countries`  
@@ -54,8 +53,6 @@ K tomu jsou vytvořeny dvě výsledné tabulky, nad kterými běží analytické
 - `gdp_yoy_pct` – meziroční růst HDP v %  
 - `region`, `subregion` – geografická klasifikace v Evropě  
 
----
-
 ## Informace o výstupních datech a chybějících hodnotách
 
 - V **primární tabulce** jsou zahrnuty pouze *roky, pro které existují jak mzdy, tak ceny mléka i chleba*. Pokud některý rok chybí v cenách dané potraviny, vypadne z výsledné tabulky.  
@@ -63,8 +60,6 @@ K tomu jsou vytvořeny dvě výsledné tabulky, nad kterými běží analytické
 - V některých odvětvích mohou chybět hodnoty mezd v konkrétním roce; při agregaci po odvětvích je to vidět jako absence dané kombinace `industry_code` + `year`.  
 - V **sekundární tabulce** nemusí mít všechny státy data pro všechna léta (např. chybějící HDP pro starší roky). V těchto letech je `gdp_yoy_pct` NULL, protože není k dispozici „předchozí rok“ pro výpočet růstu.  
 - Analýza „nejpomaleji zdražující kategorie“ využívá přímo tabulky `czechia_price` + `czechia_price_category`, protože rozpad na kategorie potravin by byl pro výsledné tabulky příliš detailní.
-
----
 
 ## Výzkumné otázky – slovní odpovědi
 
