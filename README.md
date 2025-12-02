@@ -61,8 +61,6 @@ K tomu jsou vytvořeny dvě výsledné tabulky, nad kterými běží analytické
 
 ## Výzkumné otázky – slovní odpovědi
 
-> Pozn.: Konkrétní roky a procenta doplň podle výstupů z dodaných SQL skriptů.
-
 ### Otázka 1  
 **„Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?“**  
 
