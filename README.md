@@ -69,12 +69,12 @@ Z výstupu dotazu vidíme, že většina odvětví vykazuje v čase kladný mezi
 ### Otázka 2  
 **„Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období?“**  
 
-Z tabulky `t_tomas_havelec_project_sql_primary_final` pro pseudo-odvětví `ALL` vyplývá, že na začátku sledovaného období (rok `[doplnit]`) bylo možné za průměrnou mzdu koupit přibližně `[doplnit]` litrů mléka a `[doplnit]` kg chleba. Na konci období (rok `[doplnit]`) tato kupní síla vzrostla na zhruba `[doplnit]` litrů mléka a `[doplnit]` kg chleba. Kupní síla domácností u základních potravin se tedy v čase zvýšila, i když růst není u obou komodit nutně stejně rychlý.
+Z tabulky `t_tomas_havelec_project_sql_primary_final` pro celkový průměr `ALL` vyplývá, že na začátku sledovaného období 2006 bylo možné za průměrnou mzdu koupit přibližně 1,432 litrů mléka a 1,282 kg chleba. Na konci období 2018 tato kupní síla vzrostla na zhruba 1,639 litrů mléka a 1,340 kg chleba. Kupní síla domácností u základních potravin se tedy v čase zvýšila, i když růst není u obou komodit nutně stejně rychlý.
 
 ### Otázka 3  
 **„Která kategorie potravin zdražuje nejpomaleji?“**  
 
-Analýza ročních průměrných cen podle kategorií ukazuje, že nejpomaleji zdražující kategorií je `[doplnit název kategorie]`, která má nejnižší průměrný meziroční růst cen v procentech. To znamená, že její cena rostla v čase stabilněji a méně dynamicky než u ostatních potravin, a z hlediska dlouhodobé inflace byla pro spotřebitele relativně „bezpečnější“. Ostatní kategorie vykazují výrazně vyšší průměrné tempo zdražování, případně větší výkyvy v jednotlivých letech.
+Analýza ročních průměrných cen podle kategorií ukazuje, že nejpomaleji zdražující kategorií je krystalový cukr, která má nejnižší průměrný meziroční růst cen v procentech. To znamená, že její cena rostla v čase stabilněji a méně dynamicky než u ostatních potravin, a z hlediska dlouhodobé inflace byla pro spotřebitele relativně „bezpečnější“. Ostatní kategorie vykazují výrazně vyšší průměrné tempo zdražování, případně větší výkyvy v jednotlivých letech.
 
 ### Otázka 4  
 **„Existuje rok, ve kterém byl meziroční nárůst cen potravin výrazně vyšší než růst mezd (o více než 10 p. b.)?“**  
