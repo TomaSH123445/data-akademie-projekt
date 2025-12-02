@@ -23,8 +23,6 @@ K tomu jsou vytvořeny dvě výsledné tabulky, nad kterými běží analytické
 
 **Zdroj:** `czechia_payroll` + `czechia_price`  
 
-**Granularita:** rok × odvětví (plus pseudo-odvětví `ALL` pro celou ekonomiku)
-
 **Sloupce:**
 
 - `year` – kalendářní rok  
