@@ -91,11 +91,5 @@ Při pohledu na meziroční růst HDP a meziroční růst mezd a cen potravin v 
 
 1. Spusť `primarni_tabulka.sql` – vytvoří tabulku `t_tomas_havelec_project_sql_primary_final`.  
 2. Spusť `sekundarni_tabulka.sql` – vytvoří tabulku `t_tomas_havelec_project_sql_secondary_final`.  
-3. Spusť jednotlivé dotazy `otazka_1_*.sql` až `otazka_5_*.sql` a výsledky zanalyzuj slovně (viz výše).  
-
-
-Pokud chceš, můžeme ještě **dopoladit README** tak, že do něj vložíš konkrétní čísla/roky z tvých výsledků a já ti zkontroluju, jestli slovní interpretace sedí k datům.
-
-
-
+3. Spusť jednotlivé dotazy `otazka_1_*.sql` až `otazka_5_*.sql` 
 
