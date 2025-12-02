@@ -74,7 +74,7 @@ Z tabulky `t_tomas_havelec_project_sql_primary_final` pro celkový průměr `ALL
 ### Otázka 3  
 **„Která kategorie potravin zdražuje nejpomaleji?“**  
 
-Analýza ročních průměrných cen podle kategorií ukazuje, že nejpomaleji zdražující kategorií je krystalový cukr, která má nejnižší průměrný meziroční růst cen v procentech. To znamená, že její cena rostla v čase stabilněji a méně dynamicky než u ostatních potravin, a z hlediska dlouhodobé inflace byla pro spotřebitele relativně „bezpečnější“. Ostatní kategorie vykazují výrazně vyšší průměrné tempo zdražování, případně větší výkyvy v jednotlivých letech.
+Analýza ročních průměrných cen podle kategorií ukazuje, že nejpomaleji zdražující kategorií je krystalový cukr, který má nejnižší průměrný meziroční růst cen v procentech. To znamená, že její cena rostla v čase stabilněji a méně dynamicky než u ostatních potravin, a z hlediska dlouhodobé inflace byla pro spotřebitele relativně „bezpečnější“. Ostatní kategorie vykazují výrazně vyšší průměrné tempo zdražování, případně větší výkyvy v jednotlivých letech.
 
 ### Otázka 4  
 **„Existuje rok, ve kterém byl meziroční nárůst cen potravin výrazně vyšší než růst mezd (o více než 10 p. b.)?“**  
